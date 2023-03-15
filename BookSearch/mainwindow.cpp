@@ -4,15 +4,12 @@
 #include "register.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent), logFile(new QFile("booksearch.log"))
 {
     // Create the log file
     // This file will be created in the directory of the build path
-    QFile logFile("booksearch.log");
-    if (logFile.open(QFile::WriteOnly | QFile::Text)) {
-        QTextStream logStream(&logFile);
-        logStream << "Book Search Log File\n\n";
-        logFile.flush();
+    if (logFile->open(QFile::WriteOnly | QFile::Text | QFile::Append)) {
+        writeToLogFile("Book Search Log File\n");
     } else {
         qDebug() << "Failed to create log file";
     }
@@ -29,22 +26,29 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnRegister, SIGNAL(clicked()), this, SLOT(on_btnRegister_clicked()));
 }
 
-
-
 MainWindow::~MainWindow()
 {
+    writeToLogFile("User exits the application");
+    logFile->close();
+    delete logFile;
     delete ui;
 }
 
-
-
+void MainWindow::writeToLogFile(const QString &message)
+{
+    if (logFile->isOpen()) {
+        QTextStream logStream(logFile);
+        logStream << message << "\n";
+        logFile->flush();
+    }
+}
 
 void MainWindow::on_btnRegister_clicked()
 {
+    writeToLogFile("User logs into the application");
     Register regDialog(this); // create an instance of the new UI
-        regDialog.exec(); // show the new UI as a modal dialog
-   }
-
+    regDialog.exec(); // show the new UI as a modal dialog
+}
 
 
 void MainWindow::on_btnSearch_clicked()
@@ -96,6 +100,7 @@ void MainWindow::on_btnSearch_clicked()
             db.close();
             return;
         }
+        writeToLogFile("Successful database operation");
 
         // Create a widget to hold the search results
         QWidget* resultsWidget = new QWidget();
@@ -112,6 +117,7 @@ void MainWindow::on_btnSearch_clicked()
                     .arg(title)
                     .arg(author);
             resultsLayout->addWidget(new QLabel(resultString));
+
         }
 
         // Set the search results widget as the widget for the scroll area

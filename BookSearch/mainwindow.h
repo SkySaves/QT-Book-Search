@@ -7,8 +7,9 @@
 #include <QtSql/QtSql>
 #include <QSqlQuery>
 #include <QLoggingCategory>
-
-
+#include <QFile>
+#include <QTextStream>
+#include <QSqlDatabase>
 
 
 QT_BEGIN_NAMESPACE
@@ -26,11 +27,14 @@ public:
 private:
     Ui::MainWindow *ui;
     QFile m_logFile;
+    QFile *logFile;
 
 private slots:
 
     void on_btnRegister_clicked();
 
     void on_btnSearch_clicked();
+
+    void writeToLogFile(const QString &message);
 };
 #endif // MAINWINDOW_H

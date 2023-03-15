@@ -1,2 +1,6 @@
-Book Search Log File
-
+Warning: QSqlDatabasePrivate::addDatabase: duplicate connection name 'qt_sql_deSuccessful database operation
+Successful database operation
+Successful database operation
+User exits the application
+default_connection', old connection removed.
+Warning: QSqlDatabasePrivate::addDatabase: duplicate connection name 'qt_sql_default_connection', old connection removed.

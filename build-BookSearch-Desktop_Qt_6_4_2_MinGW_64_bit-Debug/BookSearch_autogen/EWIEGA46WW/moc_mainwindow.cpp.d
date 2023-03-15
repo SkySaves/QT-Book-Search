@@ -3,6 +3,7 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtCore/QCoreApplication \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QDebug \
+  C:/Qt/6.4.2/mingw_64/include/QtCore/QFile \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QHash \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QList \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QLoggingCategory \
@@ -12,6 +13,7 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtCore/QScopedPointer \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QString \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QStringList \
+  C:/Qt/6.4.2/mingw_64/include/QtCore/QTextStream \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QVariant \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QtCore \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QtCoreDepends \
@@ -263,6 +265,7 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.4.2/mingw_64/include/QtSql/QSqlDatabase \
   C:/Qt/6.4.2/mingw_64/include/QtSql/QSqlQuery \
   C:/Qt/6.4.2/mingw_64/include/QtSql/QtSql \
   C:/Qt/6.4.2/mingw_64/include/QtSql/QtSqlDepends \
