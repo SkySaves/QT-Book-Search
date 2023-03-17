@@ -10,10 +10,14 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtCore/QMap \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QMutex \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QObject \
+  C:/Qt/6.4.2/mingw_64/include/QtCore/QRect \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QScopedPointer \
+  C:/Qt/6.4.2/mingw_64/include/QtCore/QSize \
+  C:/Qt/6.4.2/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QString \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QStringList \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QTextStream \
+  C:/Qt/6.4.2/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QVariant \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QtCore \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QtCoreDepends \
@@ -239,6 +243,8 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtCore/qwineventnotifier.h \
   C:/Qt/6.4.2/mingw_64/include/QtCore/qxmlstream.h \
   C:/Qt/6.4.2/mingw_64/include/QtCore/qxpfunctional.h \
+  C:/Qt/6.4.2/mingw_64/include/QtGui/QScreen \
+  C:/Qt/6.4.2/mingw_64/include/QtGui/QTransform \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qbrush.h \
@@ -247,8 +253,11 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtGui/qfont.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qfontinfo.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qfontmetrics.h \
+  C:/Qt/6.4.2/mingw_64/include/QtGui/qguiapplication.h \
+  C:/Qt/6.4.2/mingw_64/include/QtGui/qguiapplication_platform.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qicon.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qimage.h \
+  C:/Qt/6.4.2/mingw_64/include/QtGui/qinputmethod.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qpalette.h \
@@ -258,6 +267,7 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qrgba64.h \
+  C:/Qt/6.4.2/mingw_64/include/QtGui/qscreen.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.4.2/mingw_64/include/QtGui/qtguiglobal.h \
@@ -286,12 +296,15 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.4.2/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.4.2/mingw_64/include/QtSql/qtsqlversion.h \
+  C:/Qt/6.4.2/mingw_64/include/QtWidgets/QApplication \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt/6.4.2/mingw_64/include/QtWidgets/QSplashScreen \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qabstractitemview.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  C:/Qt/6.4.2/mingw_64/include/QtWidgets/qapplication.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qlistview.h \
@@ -299,6 +312,7 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.4.2/mingw_64/include/QtWidgets/qsplashscreen.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
   C:/Qt/6.4.2/mingw_64/include/QtWidgets/qstyleoption.h \

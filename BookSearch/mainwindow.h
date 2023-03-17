@@ -10,7 +10,10 @@
 #include <QFile>
 #include <QTextStream>
 #include <QSqlDatabase>
-
+#include <QApplication>
+#include <QSplashScreen>
+#include <QTimer>
+#include <QScreen>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
