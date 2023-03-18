@@ -2,6 +2,7 @@ BookSearch_autogen/timestamp: \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QCoreApplication \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QDebug \
+  C:/Qt/6.4.2/mingw_64/include/QtCore/QDir \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QFile \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QHash \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QList \

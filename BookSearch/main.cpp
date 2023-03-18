@@ -37,10 +37,14 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     // Create a splash screen
-    QSplashScreen splash;
-    QPixmap pixmap("C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/clueless.png");
-    splash.setPixmap(pixmap.scaled(pixmap.width() / 2, pixmap.height() / 2, Qt::KeepAspectRatio));
-    splash.show();
+       QSplashScreen splash;
+
+       // Load the pixmap from a relative path
+       QDir projectDir = QDir(QCoreApplication::applicationDirPath());
+       QPixmap pixmap(projectDir.filePath("clueless.png"));
+
+       splash.setPixmap(pixmap.scaled(pixmap.width() / 2, pixmap.height() / 2, Qt::KeepAspectRatio));
+       splash.show();
 
     // Display a message in the center of the splash screen
     splash.showMessage("Now loading CIS 227 Bookstore", Qt::AlignCenter | Qt::AlignBottom, Qt::red);

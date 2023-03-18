@@ -7,6 +7,7 @@ C:/Users/sande/Documents/BookSearch/mainwindow.h
  mdp:C:/Qt/6.4.2/mingw_64/include/QtCore/QCoreApplication
  mdp:C:/Qt/6.4.2/mingw_64/include/QtCore/QDeadlineTimer
  mdp:C:/Qt/6.4.2/mingw_64/include/QtCore/QDebug
+ mdp:C:/Qt/6.4.2/mingw_64/include/QtCore/QDir
  mdp:C:/Qt/6.4.2/mingw_64/include/QtCore/QFile
  mdp:C:/Qt/6.4.2/mingw_64/include/QtCore/QHash
  mdp:C:/Qt/6.4.2/mingw_64/include/QtCore/QList
@@ -978,8 +979,8 @@ C:/Users/sande/Documents/BookSearch/register.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
 C:/Users/sande/Documents/BookSearch/dbmanager.cpp
-C:/Users/sande/Documents/BookSearch/main.cpp
 C:/Users/sande/Documents/BookSearch/register.cpp
  uic:ui_register.h
+C:/Users/sande/Documents/BookSearch/main.cpp
 C:/Users/sande/Documents/BookSearch/mainwindow.cpp
  uic:./ui_mainwindow.h

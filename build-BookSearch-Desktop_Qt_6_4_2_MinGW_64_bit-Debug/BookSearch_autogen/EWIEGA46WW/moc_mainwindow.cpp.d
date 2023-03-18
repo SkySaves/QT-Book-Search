@@ -3,6 +3,7 @@ C:/Users/sande/Documents/build-BookSearch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Bo
   C:/Qt/6.4.2/mingw_64/include/QtCore/QCoreApplication \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QDebug \
+  C:/Qt/6.4.2/mingw_64/include/QtCore/QDir \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QFile \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QHash \
   C:/Qt/6.4.2/mingw_64/include/QtCore/QList \
