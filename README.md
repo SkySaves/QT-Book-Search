@@ -2,8 +2,10 @@
 
 
 This is a re-work of my previous program "Book-Search."
+
 This rework uses the QT framework, which includes a user friendly GUI.
-Collaborative project with Fernando
+
+Collaborative project with Fernando.
 
 
 
