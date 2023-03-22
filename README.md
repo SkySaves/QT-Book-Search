@@ -1,5 +1,7 @@
 # QT Book-Search
-## This is a re-work of my previous program "Book-Search." This rework uses the QT framework, which includes a user friendly GUI.
+## This is a re-work of my previous program "Book-Search."
+## This rework uses the QT framework, which includes a user friendly GUI.
+## Collaborative project with Fernando
 
 
 
@@ -19,4 +21,4 @@
 
 
 
-:zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz:
+:zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz:
