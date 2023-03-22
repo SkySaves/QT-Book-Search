@@ -15,6 +15,8 @@
 #include <QTimer>
 #include <QScreen>
 #include <QDir>
+#include <QStatusBar>
+#include <QLabel>
 
 
 QT_BEGIN_NAMESPACE
@@ -33,13 +35,15 @@ private:
     Ui::MainWindow *ui;
     QFile m_logFile;
     QFile *logFile;
+    QLabel *bookCountLabel;
+    QSqlDatabase db;
 
 private slots:
 
-    void on_btnRegister_clicked();
-
+    //void on_btnRegister_clicked();
     void on_btnSearch_clicked();
-
     void writeToLogFile(const QString &message);
+    void about();
+    int getNumberOfBooks();
 };
 #endif // MAINWINDOW_H

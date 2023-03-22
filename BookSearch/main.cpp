@@ -1,5 +1,7 @@
-#include "mainwindow.h"
+#include "loginform.h"
+
 #include <QApplication>
+
 
 
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& message)
@@ -53,7 +55,7 @@ int main(int argc, char *argv[])
     QLoggingCategory logCategory("BookSearch");
     qInstallMessageHandler(messageHandler);
 
-    MainWindow w;
+    loginForm w;
 
     // Get the geometry of the primary screen
     QScreen *primaryScreen = QApplication::primaryScreen();
@@ -73,4 +75,5 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
 

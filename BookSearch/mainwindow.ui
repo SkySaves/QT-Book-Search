@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>536</height>
+    <height>568</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Book Store</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -30,66 +30,14 @@
    <widget class="QPushButton" name="btnExit">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>440</y>
+      <x>700</x>
+      <y>480</y>
       <width>80</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string>Exit</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>80</y>
-      <width>161</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Ignore this for now:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnRegister">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>150</y>
-      <width>101</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Register</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnCustLogin">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>210</y>
-      <width>101</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Customer Login</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnAdminLogin">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>270</y>
-      <width>101</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Admin Login</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -183,7 +131,7 @@
      <rect>
       <x>350</x>
       <y>120</y>
-      <width>281</width>
+      <width>441</width>
       <height>331</height>
      </rect>
     </property>
@@ -195,7 +143,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>279</width>
+       <width>439</width>
        <height>329</height>
       </rect>
      </property>
@@ -211,8 +159,37 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAdmin"/>
+    <addaction name="actionLogout"/>
+   </widget>
+   <addaction name="menuMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAdmin">
+   <property name="text">
+    <string>Admin</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections>
@@ -223,8 +200,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>709</x>
-     <y>531</y>
+     <x>729</x>
+     <y>512</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
@@ -232,5 +209,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionAbout</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>about()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>283</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>about()</slot>
+  <slot>aboutPage()</slot>
+ </slots>
 </ui>

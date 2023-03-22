@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-
-#include "register.h"
+#include "about.h"
+//#include "register.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), logFile(new QFile("booksearch.log"))
@@ -21,9 +21,23 @@ MainWindow::MainWindow(QWidget *parent)
     ui = new Ui::MainWindow;
     ui->setupUi(this);
 
+    // Open the database connection
+        db = QSqlDatabase::addDatabase("QSQLITE");
+        db.setDatabaseName("bookstore.db");
+        if (!db.open()) {
+            qDebug() << "Failed to open database";
+        }
+
+
     // Connect signals and slots
     connect(ui->btnSearch, SIGNAL(clicked()), this, SLOT(on_btnSearch_clicked()));
-    connect(ui->btnRegister, SIGNAL(clicked()), this, SLOT(on_btnRegister_clicked()));
+    //connect(ui->btnRegister, SIGNAL(clicked()), this, SLOT(on_btnRegister_clicked()));
+
+    bookCountLabel = new QLabel(this); // Create a new QLabel for displaying the number of books and set its parent to the current MainWindow instance
+    int numberOfBooks = getNumberOfBooks(); // Call the getNumberOfBooks() function to retrieve the number of books in the database
+    bookCountLabel->setText(QStringLiteral("Number of books in the database: %1").arg(numberOfBooks)); // Set the text of the QLabel to display the number of books
+    statusBar()->addWidget(bookCountLabel); // Add the QLabel to the QStatusBar of the MainWindow
+
 }
 
 MainWindow::~MainWindow()
@@ -32,6 +46,8 @@ MainWindow::~MainWindow()
     logFile->close();
     delete logFile;
     delete ui;
+    // Close the database connection
+    db.close();
 }
 
 void MainWindow::writeToLogFile(const QString &message)
@@ -43,13 +59,14 @@ void MainWindow::writeToLogFile(const QString &message)
     }
 }
 
-void MainWindow::on_btnRegister_clicked()
-{
-    writeToLogFile("User logs into the application");
-    Register regDialog(this); // create an instance of the new UI
-    regDialog.exec(); // show the new UI as a modal dialog
-}
 
+
+
+void MainWindow::about()
+{
+    class about about;
+    about.exec();
+}
 
 void MainWindow::on_btnSearch_clicked()
 
@@ -75,14 +92,6 @@ void MainWindow::on_btnSearch_clicked()
             query = query.left(query.length() - 4);
         }
 
-        // Open the database and execute the query
-        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName("bookstore.db");
-        if (!db.open()) {
-            qDebug() << "Failed to open database";
-            return;
-        }
-
         QSqlQuery sqlQuery;
         sqlQuery.prepare(query);
         if (!isbn.isEmpty()) {
@@ -102,14 +111,17 @@ void MainWindow::on_btnSearch_clicked()
         }
         writeToLogFile("Successful database operation");
 
+
         // Create a widget to hold the search results
         QWidget* resultsWidget = new QWidget();
         QVBoxLayout* resultsLayout = new QVBoxLayout(resultsWidget);
+        int count = 0; //counts the number of books for the statusbar.
         while (sqlQuery.next()) {
             // Get the data for each row of the result
             QString isbn = sqlQuery.value("ISBN").toString();
             QString title = sqlQuery.value("Book-Title").toString();
             QString author = sqlQuery.value("Book-Author").toString();
+            count++; //counts the number of books for the statusbar.
 
             // Add the data to a label and add the label to the layout
             QString resultString = QString("%1: %2, by %3")
@@ -122,10 +134,27 @@ void MainWindow::on_btnSearch_clicked()
 
         // Set the search results widget as the widget for the scroll area
         ui->scrollAreaResults->setWidget(resultsWidget);
+        // Displays the total amount of books in a status bar
+        ui->statusbar->showMessage(QString("Total books: %1").arg(count));
 
-        // Close the database
-        db.close();
     }
+
+int MainWindow::getNumberOfBooks() {
+    QSqlQuery query;
+    if (!query.exec("SELECT COUNT(*) FROM books")) {
+        qWarning() << "Error: Unable to execute query to get the number of books" << query.lastError();
+        return 0;
+    }
+
+    int bookCount = 0;
+    if (query.next()) {
+        bookCount = query.value(0).toInt();
+    }
+
+    return bookCount;
+}
+
+
 
 
 
