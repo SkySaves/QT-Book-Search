@@ -14,8 +14,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
 
 set(PROJECT_SOURCES
         main.cpp
-        loginform.cpp
         loginform.h
+        loginform.cpp
         loginform.ui
         mydb.cpp
         mydb.h
@@ -25,6 +25,7 @@ set(PROJECT_SOURCES
         about.h
         about.cpp
         about.ui
+        clueless.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

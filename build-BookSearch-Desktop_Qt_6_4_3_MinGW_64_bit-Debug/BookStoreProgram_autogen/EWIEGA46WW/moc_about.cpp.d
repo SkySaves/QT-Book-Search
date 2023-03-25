@@ -1,5 +1,5 @@
-C:/Users/sande/Desktop/Fernandos/build-BookStoreProgram-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/EWIEGA46WW/moc_about.cpp: C:/Users/sande/Desktop/Fernandos/BookStoreProgram/about.h \
-  C:/Users/sande/Desktop/Fernandos/build-BookStoreProgram-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/moc_predefs.h \
+C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/EWIEGA46WW/moc_about.cpp: C:/Users/sande/Desktop/QT-Book-Search-main/BookSearch/about.h \
+  C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/moc_predefs.h \
   C:/Qt/6.4.3/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.4.3/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.4.3/mingw_64/include/QtCore/qarraydata.h \

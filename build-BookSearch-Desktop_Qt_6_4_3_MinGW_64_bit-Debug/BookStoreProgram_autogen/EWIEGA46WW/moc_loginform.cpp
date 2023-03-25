@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../../BookStoreProgram/loginform.h"
+#include "../../../BookSearch/loginform.h"
 #include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -26,28 +26,28 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
-struct qt_meta_stringdata_loginForm_t {
+struct qt_meta_stringdata_LoginForm_t {
     uint offsetsAndSizes[6];
     char stringdata0[10];
     char stringdata1[20];
     char stringdata2[1];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(sizeof(qt_meta_stringdata_loginForm_t::offsetsAndSizes) + ofs), len 
-Q_CONSTINIT static const qt_meta_stringdata_loginForm_t qt_meta_stringdata_loginForm = {
+    uint(sizeof(qt_meta_stringdata_LoginForm_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_LoginForm_t qt_meta_stringdata_LoginForm = {
     {
-        QT_MOC_LITERAL(0, 9),  // "loginForm"
+        QT_MOC_LITERAL(0, 9),  // "LoginForm"
         QT_MOC_LITERAL(10, 19),  // "on_btnLogin_clicked"
         QT_MOC_LITERAL(30, 0)   // ""
     },
-    "loginForm",
+    "LoginForm",
     "on_btnLogin_clicked",
     ""
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_loginForm[] = {
+Q_CONSTINIT static const uint qt_meta_data_LoginForm[] = {
 
  // content:
       10,       // revision
@@ -69,25 +69,25 @@ Q_CONSTINIT static const uint qt_meta_data_loginForm[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject loginForm::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject LoginForm::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_loginForm.offsetsAndSizes,
-    qt_meta_data_loginForm,
+    qt_meta_stringdata_LoginForm.offsetsAndSizes,
+    qt_meta_data_LoginForm,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_loginForm_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_LoginForm_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<loginForm, std::true_type>,
+        QtPrivate::TypeAndForceComplete<LoginForm, std::true_type>,
         // method 'on_btnLogin_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
 
-void loginForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void LoginForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<loginForm *>(_o);
+        auto *_t = static_cast<LoginForm *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->on_btnLogin_clicked(); break;
@@ -97,20 +97,20 @@ void loginForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     (void)_a;
 }
 
-const QMetaObject *loginForm::metaObject() const
+const QMetaObject *LoginForm::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *loginForm::qt_metacast(const char *_clname)
+void *LoginForm::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_loginForm.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_LoginForm.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int loginForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int LoginForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

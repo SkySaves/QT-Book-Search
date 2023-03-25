@@ -1,47 +1,53 @@
 #include "loginform.h"
-#include "./ui_loginform.h"
+
 #include <QMessageBox>
 #include "mydb.h"
+#include "ui_loginform.h"
 
-loginForm::loginForm(QWidget *parent)
+
+LoginForm::LoginForm(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::loginForm)
+    , ui(new Ui::LoginForm) // Change 'new Ui::loginform' to 'new Ui::LoginForm'
 {
     ui->setupUi(this);
+    // Disconnect any existing connections
+       disconnect(ui->btnLogin, &QPushButton::clicked, nullptr, nullptr);
+    connect(ui->btnLogin, &QPushButton::clicked, this, &LoginForm::on_btnLogin_clicked);
 }
 
-loginForm::~loginForm()
+
+LoginForm::~LoginForm()
 {
     delete ui;
 }
 
-
-void loginForm::on_btnLogin_clicked()
+void LoginForm::on_btnLogin_clicked()
 {
     QString username = ui->txtUsername->text();
     QString pass = ui->txtPass->text();
-    QSqlQuery query(MyDB::getInstance()->getDBInstance()); //singleton pattern to call DB object. This pattern limits that only one instance is made
-    query.prepare(QString("SELECT UserID FROM customerLogin WHERE Username = '" +username+"' AND Password = '" +pass+"'"));
+    QSqlQuery query(MyDB::getInstance()->getDBInstance());
+    query.prepare(QString("SELECT UserID FROM customerLogin WHERE Username = :username AND Password = :pass"));
+    query.bindValue(":username", username);
+    query.bindValue(":pass", pass);
 
     if(query.exec())
     {
         if(query.next())
         {
-             qDebug()<<"Login succesful "<<query.value(1).toString();
-             hide();
-             mainwindow = new class MainWindow(this);
-             mainwindow->show();
+            qDebug() << "Login successful " << query.value(0).toString();
+            hide();
+            mainwindow = new MainWindow(this);
+            mainwindow->show();
         }
-        else{
-             qDebug()<<"Login unsuccesful";
-             QMessageBox incorrectLogin;
-             incorrectLogin.setText("Incorrect password or username. Try again.");
-             incorrectLogin.exec();
+        else
+        {
+            qDebug() << "Login unsuccessful";
+            QMessageBox::warning(this, "Incorrect Login", "Incorrect password or username. Try again.");
         }
     }
-    else{
-        qDebug()<<"Login unsuccesful";
+    else
+    {
+        qDebug() << "Login unsuccessful";
     }
-
 }
 

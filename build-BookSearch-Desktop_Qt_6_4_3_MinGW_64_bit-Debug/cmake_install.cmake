@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/sande/Desktop/Fernandos/BookStoreProgram
+# Install script for directory: C:/Users/sande/Desktop/QT-Book-Search-main/BookSearch
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/sande/Desktop/Fernandos/build-BookStoreProgram-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/BookStoreProgram.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/BookStoreProgram.exe")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -55,5 +55,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/sande/Desktop/Fernandos/build-BookStoreProgram-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -56,6 +57,14 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 568);
+        QIcon icon;
+        QString iconThemeName = QString::fromUtf8("face-uncertain");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon.addFile(QString::fromUtf8("../../../Downloads/clueless.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        }
+        MainWindow->setWindowIcon(icon);
         actionAbout = new QAction(MainWindow);
         actionAbout->setObjectName("actionAbout");
         actionExit = new QAction(MainWindow);

@@ -1,0 +1,19 @@
+{
+	"BUILD_DIR" : "C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/sande/Desktop/QT-Book-Search-main/BookSearch",
+	"CMAKE_SOURCE_DIR" : "C:/Users/sande/Desktop/QT-Book-Search-main/BookSearch",
+	"INCLUDE_DIR" : "C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/include",
+	"INPUTS" : [ "C:/Users/sande/Desktop/QT-Book-Search-main/BookSearch/clueless.png" ],
+	"LOCK_FILE" : "C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/BookStoreProgram_autogen.dir/AutoRcc_clueless_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "clueless" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_clueless.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.4.3/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/BookStoreProgram_autogen.dir/AutoRcc_clueless_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/Users/sande/Desktop/QT-Book-Search-main/BookSearch/clueless.qrc",
+	"VERBOSITY" : 0
+}

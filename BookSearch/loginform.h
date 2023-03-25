@@ -3,24 +3,29 @@
 
 #include <QMainWindow>
 #include "mainwindow.h"
+#include <QWidget>
+#include "ui_loginform.h"  // Newly added line
+
+namespace Ui {
+    class LoginForm;
+}
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class loginForm; }
 QT_END_NAMESPACE
 
-class loginForm : public QMainWindow
+class LoginForm : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    loginForm(QWidget *parent = nullptr);
-    ~loginForm();
+    LoginForm(QWidget *parent = nullptr);
+    ~LoginForm();
 
 private slots:
     void on_btnLogin_clicked();
 
 private:
-    Ui::loginForm *ui;
+    Ui::LoginForm *ui; // Change 'Ui::loginform *ui' to 'Ui::LoginForm *ui'
     MainWindow *mainwindow;
 };
 #endif // LOGINFORM_H

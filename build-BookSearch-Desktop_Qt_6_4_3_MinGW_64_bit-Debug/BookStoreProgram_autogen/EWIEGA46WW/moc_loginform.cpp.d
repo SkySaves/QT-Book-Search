@@ -1,5 +1,5 @@
-C:/Users/sande/Desktop/Fernandos/build-BookStoreProgram-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/EWIEGA46WW/moc_loginform.cpp: C:/Users/sande/Desktop/Fernandos/BookStoreProgram/loginform.h \
-  C:/Users/sande/Desktop/Fernandos/build-BookStoreProgram-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/moc_predefs.h \
+C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/EWIEGA46WW/moc_loginform.cpp: C:/Users/sande/Desktop/QT-Book-Search-main/BookSearch/loginform.h \
+  C:/Users/sande/Desktop/QT-Book-Search-main/build-BookSearch-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BookStoreProgram_autogen/moc_predefs.h \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QCoreApplication \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDebug \
@@ -304,6 +304,7 @@ C:/Users/sande/Desktop/Fernandos/build-BookStoreProgram-Desktop_Qt_6_4_3_MinGW_6
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QSplashScreen \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QStatusBar \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemview.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
@@ -646,4 +647,4 @@ C:/Users/sande/Desktop/Fernandos/build-BookStoreProgram-Desktop_Qt_6_4_3_MinGW_6
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
-  C:/Users/sande/Desktop/Fernandos/BookStoreProgram/mainwindow.h
+  C:/Users/sande/Desktop/QT-Book-Search-main/BookSearch/mainwindow.h

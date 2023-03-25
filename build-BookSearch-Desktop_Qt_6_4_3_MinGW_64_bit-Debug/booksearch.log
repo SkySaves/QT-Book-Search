@@ -1,6 +1,6 @@
 Debug: in MyDB::getInstance()
 Debug: DB file exist
 Debug: Database loaded successful!
-Debug: Login succesful  ""
+Debug: Login successful  "5"
 Book Search Log File
 

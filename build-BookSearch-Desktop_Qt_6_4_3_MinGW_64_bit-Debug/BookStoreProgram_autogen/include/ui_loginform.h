@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -23,7 +24,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_loginForm
+class Ui_LoginForm
 {
 public:
     QAction *actionRegister_Account;
@@ -39,14 +40,22 @@ public:
     QMenu *menuRegister;
     QStatusBar *statusbar;
 
-    void setupUi(QMainWindow *loginForm)
+    void setupUi(QMainWindow *LoginForm)
     {
-        if (loginForm->objectName().isEmpty())
-            loginForm->setObjectName("loginForm");
-        loginForm->resize(365, 277);
-        actionRegister_Account = new QAction(loginForm);
+        if (LoginForm->objectName().isEmpty())
+            LoginForm->setObjectName("LoginForm");
+        LoginForm->resize(365, 277);
+        QIcon icon;
+        QString iconThemeName = QString::fromUtf8("face-uncertain");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon.addFile(QString::fromUtf8("../../../Downloads/clueless.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        }
+        LoginForm->setWindowIcon(icon);
+        actionRegister_Account = new QAction(LoginForm);
         actionRegister_Account->setObjectName("actionRegister_Account");
-        centralwidget = new QWidget(loginForm);
+        centralwidget = new QWidget(LoginForm);
         centralwidget->setObjectName("centralwidget");
         txtUsername = new QLineEdit(centralwidget);
         txtUsername->setObjectName("txtUsername");
@@ -73,41 +82,42 @@ public:
         btnLoginExit = new QPushButton(centralwidget);
         btnLoginExit->setObjectName("btnLoginExit");
         btnLoginExit->setGeometry(QRect(260, 210, 80, 24));
-        loginForm->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(loginForm);
+        LoginForm->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(LoginForm);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 365, 21));
         menuRegister = new QMenu(menubar);
         menuRegister->setObjectName("menuRegister");
-        loginForm->setMenuBar(menubar);
-        statusbar = new QStatusBar(loginForm);
+        LoginForm->setMenuBar(menubar);
+        statusbar = new QStatusBar(LoginForm);
         statusbar->setObjectName("statusbar");
-        loginForm->setStatusBar(statusbar);
+        LoginForm->setStatusBar(statusbar);
 
         menubar->addAction(menuRegister->menuAction());
 
-        retranslateUi(loginForm);
-        QObject::connect(btnLoginExit, &QPushButton::clicked, loginForm, qOverload<>(&QMainWindow::close));
+        retranslateUi(LoginForm);
+        QObject::connect(btnLoginExit, &QPushButton::clicked, LoginForm, qOverload<>(&QMainWindow::close));
+        QObject::connect(btnLogin, SIGNAL(clicked()), LoginForm, SLOT(on_btnLogin_clicked()));
 
-        QMetaObject::connectSlotsByName(loginForm);
+        QMetaObject::connectSlotsByName(LoginForm);
     } // setupUi
 
-    void retranslateUi(QMainWindow *loginForm)
+    void retranslateUi(QMainWindow *LoginForm)
     {
-        loginForm->setWindowTitle(QCoreApplication::translate("loginForm", "Login", nullptr));
-        actionRegister_Account->setText(QCoreApplication::translate("loginForm", "Register Account", nullptr));
-        btnLogin->setText(QCoreApplication::translate("loginForm", "Login", nullptr));
-        label->setText(QCoreApplication::translate("loginForm", "Customer Login", nullptr));
-        label_2->setText(QCoreApplication::translate("loginForm", "Username:", nullptr));
-        label_3->setText(QCoreApplication::translate("loginForm", "Password:", nullptr));
-        btnLoginExit->setText(QCoreApplication::translate("loginForm", "Exit", nullptr));
-        menuRegister->setTitle(QCoreApplication::translate("loginForm", "Register", nullptr));
+        LoginForm->setWindowTitle(QCoreApplication::translate("LoginForm", "Login", nullptr));
+        actionRegister_Account->setText(QCoreApplication::translate("LoginForm", "Register Account", nullptr));
+        btnLogin->setText(QCoreApplication::translate("LoginForm", "Login", nullptr));
+        label->setText(QCoreApplication::translate("LoginForm", "Customer Login", nullptr));
+        label_2->setText(QCoreApplication::translate("LoginForm", "Username:", nullptr));
+        label_3->setText(QCoreApplication::translate("LoginForm", "Password:", nullptr));
+        btnLoginExit->setText(QCoreApplication::translate("LoginForm", "Exit", nullptr));
+        menuRegister->setTitle(QCoreApplication::translate("LoginForm", "Register", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class loginForm: public Ui_loginForm {};
+    class LoginForm: public Ui_LoginForm {};
 } // namespace Ui
 
 QT_END_NAMESPACE

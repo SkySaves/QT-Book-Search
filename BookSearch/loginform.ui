@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>loginForm</class>
- <widget class="QMainWindow" name="loginForm">
+ <class>LoginForm</class>
+ <widget class="QMainWindow" name="LoginForm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -12,6 +12,10 @@
   </property>
   <property name="windowTitle">
    <string>Login</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="face-uncertain">
+    <normaloff>../../../Downloads/clueless.ico</normaloff>../../../Downloads/clueless.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="txtUsername">
@@ -134,7 +138,7 @@
   <connection>
    <sender>btnLoginExit</sender>
    <signal>clicked()</signal>
-   <receiver>loginForm</receiver>
+   <receiver>LoginForm</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -147,5 +151,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnLogin</sender>
+   <signal>clicked()</signal>
+   <receiver>LoginForm</receiver>
+   <slot>on_btnLogin_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>207</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>on_btnLogin_clicked()</slot>
+ </slots>
 </ui>

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Book Store</string>
   </property>
+  <property name="windowIcon">
+   <iconset theme="face-uncertain">
+    <normaloff>../../../Downloads/clueless.ico</normaloff>../../../Downloads/clueless.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
