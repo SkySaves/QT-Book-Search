@@ -26,6 +26,7 @@ Collaborative project with Fernando and Johnathan
 ### v0.0.6:
 
       -Set the screen to the users primary screen, displays the splash screen on their second screen if they have one.
+      
       -Modified the splashscreen to take up no more that 15% of the available desktop space
 
 :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz:
