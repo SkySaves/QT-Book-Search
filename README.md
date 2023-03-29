@@ -32,10 +32,10 @@ Collaborative project with Fernando and Johnathan
 ### v0.0.7:
       -Display hardware information to the user on a separate screen (Launch from Help menu).
       
-      -Set the screen to the users primary screen,  Display the splash screen on their second screen if they have one.
+      -Set the screen to the users primary screen, displays the splash screen on their second screen if they have one.
       
-      -Use a qMessageBox in your application when an entry is incorrect.
+      -Uses a qMessageBox in the application when an entry is incorrect.
       
-      -Modify the splashscreen to take up no more that 15% of the available desktop space
+      -Modified the splashscreen to take up no more that 15% of the available desktop space.
 
 :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz:
