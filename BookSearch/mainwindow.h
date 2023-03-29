@@ -45,5 +45,6 @@ private slots:
     void writeToLogFile(const QString &message);
     void about();
     int getNumberOfBooks();
+    void help();
 };
 #endif // MAINWINDOW_H

@@ -26,6 +26,9 @@ set(PROJECT_SOURCES
         about.cpp
         about.ui
         clueless.qrc
+        help.h
+        help.cpp
+        help.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

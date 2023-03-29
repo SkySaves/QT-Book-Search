@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "about.h"
+#include <QMessageBox>
+#include "help.h"
 //#include "register.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -68,6 +70,13 @@ void MainWindow::about()
     about.exec();
 }
 
+
+void MainWindow::help()
+{
+    class help help;
+    help.exec();
+}
+
 void MainWindow::on_btnSearch_clicked()
 
     {
@@ -115,6 +124,16 @@ void MainWindow::on_btnSearch_clicked()
         // Create a widget to hold the search results
         QWidget* resultsWidget = new QWidget();
         QVBoxLayout* resultsLayout = new QVBoxLayout(resultsWidget);
+
+
+        //Keep the disconnect and reconnect or else there will be a dublicate message box that pops up.
+        // Disconnect the signal and slot
+        disconnect(ui->btnSearch, SIGNAL(clicked()), this, SLOT(on_btnSearch_clicked()));
+
+        // Connect the signal and slot again
+        connect(ui->btnSearch, SIGNAL(clicked()), this, SLOT(on_btnSearch_clicked()));
+
+
         int count = 0; //counts the number of books for the statusbar.
         while (sqlQuery.next()) {
             // Get the data for each row of the result
@@ -130,6 +149,10 @@ void MainWindow::on_btnSearch_clicked()
                     .arg(author);
             resultsLayout->addWidget(new QLabel(resultString));
 
+        }
+
+        if(count == 0){
+            QMessageBox::warning(this, "Invalid search", "No books found with the search perameters. Please enter again.");
         }
 
         // Set the search results widget as the widget for the scroll area
@@ -153,8 +176,3 @@ int MainWindow::getNumberOfBooks() {
 
     return bookCount;
 }
-
-
-
-
-
