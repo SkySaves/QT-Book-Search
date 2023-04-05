@@ -10,7 +10,7 @@ Collaborative project with Fernando and Johnathan.
 
 
 ### v0.0.3:
-      -Added a splash screen before it launches, the PNG file it uses is included in the directory.
+      -Added a splash screen before the program launches, the PNG file it uses is included in the directory.
 
 ### v0.0.5:
 
