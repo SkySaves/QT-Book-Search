@@ -42,6 +42,10 @@ set(PROJECT_SOURCES
         adminlogin.h
         adminlogin.cpp
         adminlogin.ui
+        cart.cpp
+        cart.h
+        checkout.cpp
+        checkout.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

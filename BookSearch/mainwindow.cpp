@@ -4,6 +4,8 @@
 #include <QMessageBox>
 #include "help.h"
 #include "notes.h"
+#include "cart.h"
+#include "checkout.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -91,6 +93,21 @@ void MainWindow::on_btnSearch_clicked()
         QString isbn = ui->lineISBN->text();
         QString title = ui->lineTitle->text();
         QString author = ui->lineAuthor->text();
+
+
+        if (title == "Pac-Man" && isbn == "3333360" && author == "Toru Iwatani"){
+
+        QString gamePath = "QT-pac-man.exe";
+        QFileInfo gameInfo(gamePath);
+
+        if (gameInfo.exists()) {
+            // Start the QT-pac-man game
+            QProcess::startDetached(gamePath);
+        } else {
+            // Display an error message if the game is not installed
+            QMessageBox::critical(this, "Error", "QT-pac-man is not installed on this system.");
+        }
+        }
 
         // Construct the SQL query based on the search criteria
         QString query = "SELECT * FROM books WHERE ";
@@ -183,3 +200,98 @@ int MainWindow::getNumberOfBooks() {
 
     return bookCount;
 }
+
+
+void MainWindow::on_btnCheckout_clicked(){
+    Checkout checkout(cart.get_items());
+
+    checkout.process_order();
+    QString message;
+
+    int totalCount = cart.get_item_count();
+    if (totalCount == 0){
+        message = "You have not added any books to your cart.";
+    }
+    else {
+        QString count = QString::number(totalCount);
+        double totalNumber = checkout.total_price * salesTax;
+        QString total = QString::number(totalNumber, 'f', 2);
+
+        message = "You have a total of " + count + " books in your cart\nThe total for today comes out to $" + total + ".\nThank you for shopping with us today!";
+
+    }
+
+    QMessageBox::information(this, "Checkout", message);
+
+    cart.clear_cart();
+    int totalCartCount = cart.get_item_count();
+    ui->statusbar->showMessage(QString("Total books in cart: %1.").arg(totalCartCount));
+}
+
+void MainWindow::on_btnClear_clicked(){
+    // Clear inputs
+    ui->lineAuthor->clear();
+    ui->lineISBN->clear();
+    ui->lineTitle->clear();
+}
+
+void MainWindow::on_btnAddtoCart_clicked()
+{
+    QString isbn = ui->lineISBN->text();
+    QString title = ui->lineTitle->text();
+    QString author = ui->lineAuthor->text();
+
+    if (title.isEmpty() || isbn.isEmpty() || author.isEmpty()) {
+        // No book is selected, so do nothing
+        QMessageBox::warning(this, "Invalid", "When adding book to cart, please fill out title, isbn, and author");
+        return;
+    }
+
+    QString query = "SELECT * FROM books WHERE ";
+
+    query += QString("ISBN='%1' AND ").arg(isbn);
+    query += "lower(`Book-Title`) LIKE :title AND ";
+    query += "lower(`Book-Author`) LIKE :author";
+
+    QSqlQuery sqlQuery;
+    sqlQuery.prepare(query);
+    if (!isbn.isEmpty()) {
+        sqlQuery.bindValue(":isbn", isbn);
+    }
+    if (!title.isEmpty()) {
+        sqlQuery.bindValue(":title", QString("%%1%").arg(title.toLower()));
+    }
+    if (!author.isEmpty()) {
+        sqlQuery.bindValue(":author", QString("%%1%").arg(author.toLower()));
+    }
+
+    if (!sqlQuery.exec()) {
+        qDebug() << "Failed to execute query";
+        db.close();
+        return;
+    }
+    writeToLogFile("Successful database operation");
+
+    while (sqlQuery.next()) {
+        // Get the data for each row of the result
+        QString isbn = sqlQuery.value("ISBN").toString();
+        int book_id = isbn.toInt();
+        QString title = sqlQuery.value("Book-Title").toString();
+        std::string book = title.toStdString();
+        double price = sqlQuery.value("MSRP").toDouble();
+
+        QString message = "You have successfully added " + title + " to your cart!";
+        // Clear inputs
+        ui->lineAuthor->clear();
+        ui->lineISBN->clear();
+        ui->lineTitle->clear();
+        // Add the data to a cart
+        cart.add_item(book_id, book, price);
+        QMessageBox::information(this, "Added", message);
+
+    }
+
+    int totalCartCount = cart.get_item_count();
+    ui->statusbar->showMessage(QString("Total books in cart: %1").arg(totalCartCount));
+}
+
