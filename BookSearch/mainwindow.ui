@@ -120,8 +120,8 @@
    <widget class="QPushButton" name="btnSearch">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>370</y>
+      <x>40</x>
+      <y>470</y>
       <width>91</width>
       <height>41</height>
      </rect>
@@ -130,28 +130,60 @@
      <string>Search</string>
     </property>
    </widget>
-   <widget class="QScrollArea" name="scrollAreaResults">
+   <widget class="QPushButton" name="btnAddtoCart">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>120</y>
-      <width>441</width>
-      <height>331</height>
+      <x>150</x>
+      <y>470</y>
+      <width>91</width>
+      <height>41</height>
      </rect>
     </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
+    <property name="text">
+     <string>Add to Cart</string>
     </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>439</width>
-       <height>329</height>
-      </rect>
-     </property>
-    </widget>
+   </widget>
+   <widget class="QPushButton" name="btnClear">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>470</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnCheckout">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>470</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Checkout</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidgetResults">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>70</y>
+      <width>361</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "cart.h"
 #include <QMainWindow>
 #include <QCoreApplication>
 #include <QDebug>
@@ -17,7 +18,6 @@
 #include <QDir>
 #include <QStatusBar>
 #include <QLabel>
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -37,6 +37,9 @@ private:
     QFile *logFile;
     QLabel *bookCountLabel;
     QSqlDatabase db;
+    Cart cart;
+    double salesTax = 1.06;
+    QVector<QStringList> selectedBooks;
 
 private slots:
 
@@ -47,5 +50,8 @@ private slots:
     int getNumberOfBooks();
     void help();
     void notes();
+    void on_btnAddtoCart_clicked();
+    void on_btnCheckout_clicked();
+    void on_btnClear_clicked();
 };
 #endif // MAINWINDOW_H

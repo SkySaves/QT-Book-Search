@@ -4,6 +4,11 @@
 #include <QMessageBox>
 #include "help.h"
 #include "notes.h"
+#include "cart.h"
+#include "checkout.h"
+#include <QTableWidget>
+#include <QTableWidgetItem>
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -32,9 +37,10 @@ MainWindow::MainWindow(QWidget *parent)
         }
 
 
-    // Connect signals and slots
-    connect(ui->btnSearch, SIGNAL(clicked()), this, SLOT(on_btnSearch_clicked()));
-    //connect(ui->btnRegister, SIGNAL(clicked()), this, SLOT(on_btnRegister_clicked()));
+    // Disconnect any existing connections
+    disconnect(ui->btnSearch, &QPushButton::clicked, nullptr, nullptr);
+    connect(ui->btnSearch, &QPushButton::clicked, this, &MainWindow::on_btnSearch_clicked);
+
 
     bookCountLabel = new QLabel(this); // Create a new QLabel for displaying the number of books and set its parent to the current MainWindow instance
     int numberOfBooks = getNumberOfBooks(); // Call the getNumberOfBooks() function to retrieve the number of books in the database
@@ -85,89 +91,95 @@ void MainWindow::notes()
 }
 
 void MainWindow::on_btnSearch_clicked()
+{
+    // Get the search criteria from the line edit boxes
+    QString isbn = ui->lineISBN->text();
+    QString title = ui->lineTitle->text();
+    QString author = ui->lineAuthor->text();
+    if (title == "Pac-Man" && isbn == "3333360" && author == "Toru Iwatani") {
+        QString gamePath = "QT-pac-man.exe";
+        QFileInfo gameInfo(gamePath);
 
-    {
-        // Get the search criteria from the line edit boxes
-        QString isbn = ui->lineISBN->text();
-        QString title = ui->lineTitle->text();
-        QString author = ui->lineAuthor->text();
-
-        // Construct the SQL query based on the search criteria
-        QString query = "SELECT * FROM books WHERE ";
-        if (!isbn.isEmpty()) {
-            query += QString("ISBN='%1' AND ").arg(isbn);
+        if (gameInfo.exists()) {
+            // Start the QT-pac-man game
+            QProcess::startDetached(gamePath);
+        } else {
+            // Display an error message if the game is not installed
+            QMessageBox::critical(this, "Error", "QT-pac-man is not installed on this system.");
         }
-        if (!title.isEmpty()) {
-            query += "lower(`Book-Title`) LIKE :title AND ";
-        }
-        if (!author.isEmpty()) {
-            query += "lower(`Book-Author`) LIKE :author AND ";
-        }
-        // Remove the trailing "AND" if it exists
-        if (query.endsWith("AND ")) {
-            query = query.left(query.length() - 4);
-        }
-
-        QSqlQuery sqlQuery;
-        sqlQuery.prepare(query);
-        if (!isbn.isEmpty()) {
-            sqlQuery.bindValue(":isbn", isbn);
-        }
-        if (!title.isEmpty()) {
-            sqlQuery.bindValue(":title", QString("%%1%").arg(title.toLower()));
-        }
-        if (!author.isEmpty()) {
-            sqlQuery.bindValue(":author", QString("%%1%").arg(author.toLower()));
-        }
-
-        if (!sqlQuery.exec()) {
-            qDebug() << "Failed to execute query";
-            db.close();
-            return;
-        }
-        writeToLogFile("Successful database operation");
-
-
-        // Create a widget to hold the search results
-        QWidget* resultsWidget = new QWidget();
-        QVBoxLayout* resultsLayout = new QVBoxLayout(resultsWidget);
-
-
-        //Keep the disconnect and reconnect or else there will be a dublicate message box that pops up.
-        // Disconnect the signal and slot
-        disconnect(ui->btnSearch, SIGNAL(clicked()), this, SLOT(on_btnSearch_clicked()));
-
-        // Connect the signal and slot again
-        connect(ui->btnSearch, SIGNAL(clicked()), this, SLOT(on_btnSearch_clicked()));
-
-
-        int count = 0; //counts the number of books for the statusbar.
-        while (sqlQuery.next()) {
-            // Get the data for each row of the result
-            QString isbn = sqlQuery.value("ISBN").toString();
-            QString title = sqlQuery.value("Book-Title").toString();
-            QString author = sqlQuery.value("Book-Author").toString();
-            count++; //counts the number of books for the statusbar.
-
-            // Add the data to a label and add the label to the layout
-            QString resultString = QString("%1: %2, by %3")
-                    .arg(isbn)
-                    .arg(title)
-                    .arg(author);
-            resultsLayout->addWidget(new QLabel(resultString));
-
-        }
-
-        if(count == 0){
-            QMessageBox::warning(this, "Invalid search", "No books found with the search perameters. Please enter again.");
-        }
-
-        // Set the search results widget as the widget for the scroll area
-        ui->scrollAreaResults->setWidget(resultsWidget);
-        // Displays the total amount of books in a status bar
-        ui->statusbar->showMessage(QString("Total books: %1").arg(count));
-
     }
+
+
+    // Initialize row count
+    int count = 0;
+
+    // Displays the total amount of books in a status bar
+    ui->statusbar->showMessage(QString("Total books: %1").arg(count));
+
+    // Set the column headers for the table widget
+    ui->tableWidgetResults->setColumnCount(3);
+    ui->tableWidgetResults->setHorizontalHeaderLabels(QStringList() << "ISBN" << "Title" << "Author");
+
+    // Set the number of rows in the table widget to the number of search results
+    ui->tableWidgetResults->setRowCount(count);
+
+
+    // Construct the SQL query based on the search criteria
+    QString query = "SELECT * FROM books WHERE ";
+    if (!isbn.isEmpty()) {
+        query += QString("ISBN='%1' AND ").arg(isbn);
+    }
+    if (!title.isEmpty()) {
+        query += "lower(`Book-Title`) LIKE :title AND ";
+    }
+    if (!author.isEmpty()) {
+        query += "lower(`Book-Author`) LIKE :author AND ";
+    }
+    // Remove the trailing "AND" if it exists
+    if (query.endsWith("AND ")) {
+        query = query.left(query.length() - 4);
+    }
+
+    QSqlQuery sqlQuery;
+    sqlQuery.prepare(query);
+    if (!isbn.isEmpty()) {
+        sqlQuery.bindValue(":isbn", isbn);
+    }
+    if (!title.isEmpty()) {
+        sqlQuery.bindValue(":title", QString("%%1%").arg(title.toLower()));
+    }
+    if (!author.isEmpty()) {
+        sqlQuery.bindValue(":author", QString("%%1%").arg(author.toLower()));
+    }
+
+    if (!sqlQuery.exec()) {
+        qDebug() << "Failed to execute query";
+        db.close();
+        return;
+    }
+    writeToLogFile("Successful database operation");
+
+    ui->tableWidgetResults->clearContents();
+
+    // Populate the search results directly to the table widget
+    while (sqlQuery.next()) {
+        QString isbn = sqlQuery.value("ISBN").toString();
+        QString title = sqlQuery.value("Book-Title").toString();
+        QString author = sqlQuery.value("Book-Author").toString();
+        count++;
+
+        int row = ui->tableWidgetResults->rowCount();
+        ui->tableWidgetResults->insertRow(row);
+        ui->tableWidgetResults->setItem(row, 0, new QTableWidgetItem(isbn));
+        ui->tableWidgetResults->setItem(row, 1, new QTableWidgetItem(title));
+        ui->tableWidgetResults->setItem(row, 2, new QTableWidgetItem(author));
+    }
+
+    if (count == 0) {
+        QMessageBox::warning(this, "Invalid search", "No books found with the search parameters. Please enter again.");
+    }
+
+}
 
 int MainWindow::getNumberOfBooks() {
     QSqlQuery query;
@@ -183,3 +195,105 @@ int MainWindow::getNumberOfBooks() {
 
     return bookCount;
 }
+
+
+void MainWindow::on_btnCheckout_clicked()
+{
+    QString message;
+
+    int selectedCount = ui->tableWidgetResults->selectionModel()->selectedRows().count();
+    if (selectedCount == 0) {
+        message = "You have not selected any books to add to your cart.";
+    } else {
+        std::map<int, CartItem> selectedItems;
+        double selectedPriceTotal = 0;
+        int i = 0;
+        for (const auto &index : ui->tableWidgetResults->selectionModel()->selectedRows()) {
+            QString title = ui->tableWidgetResults->item(index.row(), 0)->text();
+            double price = ui->tableWidgetResults->item(index.row(), 2)->text().toDouble();
+            CartItem item;
+            item.title = title;
+            item.price = price;
+            selectedItems.insert(std::make_pair(i, item));
+            selectedPriceTotal += price;
+            i++;
+        }
+
+        Checkout checkout(selectedItems);
+        checkout.calculate_total_price();
+        double totalPrice = checkout.total_price;
+
+        QString titles;
+        for (const auto& item : selectedItems) {
+            titles += item.second.title + ", ";
+        }
+        titles.chop(2);  // remove the last comma and space
+
+        QString count = QString::number(selectedCount);
+        QString total = QString::number(totalPrice * salesTax, 'f', 2);
+
+        message = "You have added the following " + count + " books to your cart: \n" + titles + "\nThe total for today comes out to $" + total + ".\nThank you for shopping with us today!";
+    }
+    QMessageBox::information(this, "Checkout", message);
+
+    // Clear the cart after checkout
+    cart.clear_cart();
+    int totalCartCount = cart.get_item_count();
+    ui->statusbar->showMessage(QString("Total books in cart: %1.").arg(totalCartCount));
+
+    // Update the table
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT title, author, price FROM books");
+
+    // Set the number of rows and columns in the table
+    ui->tableWidgetResults->setRowCount(model->rowCount());
+    ui->tableWidgetResults->setColumnCount(model->columnCount());
+
+    // Loop through each row and column and set the data
+    for (int row = 0; row < model->rowCount(); ++row) {
+        for (int col = 0; col < model->columnCount(); ++col) {
+            auto item = new QTableWidgetItem(model->data(model->index(row, col)).toString());
+            ui->tableWidgetResults->setItem(row, col, item);
+        }
+    }
+
+    // Clear the selection
+    ui->tableWidgetResults->clearSelection();
+
+}
+
+
+
+
+
+void MainWindow::on_btnClear_clicked(){
+    // Clear inputs
+    ui->lineAuthor->clear();
+    ui->lineISBN->clear();
+    ui->lineTitle->clear();
+}
+
+void MainWindow::on_btnAddtoCart_clicked()
+{
+    // Get the selected rows
+    QList<QTableWidgetItem *> selectedItems = ui->tableWidgetResults->selectedItems();
+
+    // Check if any rows are selected
+    if (selectedItems.isEmpty()) {
+        return;
+    }
+
+    // Iterate over the selected rows and add the information of each selected book to the QVector
+    for (int i = 0; i < selectedItems.size(); i += 3) {
+        QStringList book;
+        book << selectedItems[i]->text() << selectedItems[i+1]->text() << selectedItems[i+2]->text();
+        selectedBooks.append(book);
+    }
+
+    // Display the number of selected books in the Cart button
+    ui->statusbar->showMessage(QStringLiteral("Cart (%1)").arg(selectedBooks.size()));
+
+}
+
+
+
