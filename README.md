@@ -8,6 +8,8 @@ This rework uses the QT framework, which includes a user friendly GUI.
 Collaborative project with Fernando and Johnathan.
 
 
+## You must copy the database into the build directory if you compile yourself!
+
 
 ### v0.0.3:
       -Added a splash screen before the program launches, the PNG file it uses is included in the directory.
@@ -48,6 +50,14 @@ Collaborative project with Fernando and Johnathan.
       -Added a Registration UI from the customer login menu that allows you to create a new customer account.
       
       -Minor bug fixes.
+      
+### v0.0.9:
+      -Added a Pac-Man easter egg
+      
+      -Added Cart functionality.
+      
+      -Added Checkout functionality.
+      
       
       
       
