@@ -46,5 +46,6 @@ private slots:
     void about();
     int getNumberOfBooks();
     void help();
+    void notes();
 };
 #endif // MAINWINDOW_H

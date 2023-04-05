@@ -5,6 +5,11 @@
 #include "mainwindow.h"
 #include <QWidget>
 #include "ui_loginform.h"  // Newly added line
+#include "adminlogin.h"
+
+
+class RegisterForm;
+
 
 namespace Ui {
     class LoginForm;
@@ -23,9 +28,13 @@ public:
 
 private slots:
     void on_btnLogin_clicked();
+    void newRegister();
+    void adminLogin();
 
 private:
     Ui::LoginForm *ui; // Change 'Ui::loginform *ui' to 'Ui::LoginForm *ui'
     MainWindow *mainwindow;
+    RegisterForm *registerform; // Add a pointer to the Register form
+    adminlogin *Adminlogin;
 };
 #endif // LOGINFORM_H

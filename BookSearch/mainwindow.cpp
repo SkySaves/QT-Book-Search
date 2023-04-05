@@ -3,7 +3,8 @@
 #include "about.h"
 #include <QMessageBox>
 #include "help.h"
-//#include "register.h"
+#include "notes.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), logFile(new QFile("booksearch.log"))
@@ -75,6 +76,12 @@ void MainWindow::help()
 {
     class help help;
     help.exec();
+}
+
+void MainWindow::notes()
+{
+    class notes notes;
+    notes.exec();
 }
 
 void MainWindow::on_btnSearch_clicked()

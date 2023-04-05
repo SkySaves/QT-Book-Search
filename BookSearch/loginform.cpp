@@ -2,13 +2,15 @@
 
 #include <QMessageBox>
 #include "mydb.h"
+#include "register.h"
 #include "ui_loginform.h"
 
 
 LoginForm::LoginForm(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::LoginForm) // Change 'new Ui::loginform' to 'new Ui::LoginForm'
+    , ui(new Ui::LoginForm)
 {
+
     ui->setupUi(this);
     // Disconnect any existing connections
        disconnect(ui->btnLogin, &QPushButton::clicked, nullptr, nullptr);
@@ -21,7 +23,22 @@ LoginForm::~LoginForm()
     delete ui;
 }
 
+void LoginForm::adminLogin()
+{
+    hide();
+    Adminlogin = new adminlogin(this);
+    Adminlogin->show();
+}
 
+
+void LoginForm::newRegister()
+{
+    hide();
+    registerform = new RegisterForm();
+
+
+    registerform->exec();
+}
 
 void LoginForm::on_btnLogin_clicked()
 {

@@ -123,13 +123,31 @@
     <property name="title">
      <string>Register</string>
     </property>
+    <addaction name="actionRegister"/>
+   </widget>
+   <widget class="QMenu" name="menuAdmin">
+    <property name="title">
+     <string>Admin</string>
+    </property>
+    <addaction name="actionAdmin_Login"/>
    </widget>
    <addaction name="menuRegister"/>
+   <addaction name="menuAdmin"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionRegister_Account">
    <property name="text">
     <string>Register Account</string>
+   </property>
+  </action>
+  <action name="actionRegister">
+   <property name="text">
+    <string>Create Account</string>
+   </property>
+  </action>
+  <action name="actionAdmin_Login">
+   <property name="text">
+    <string>Admin Login</string>
    </property>
   </action>
  </widget>
@@ -167,8 +185,42 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionRegister</sender>
+   <signal>triggered()</signal>
+   <receiver>LoginForm</receiver>
+   <slot>newRegister()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAdmin_Login</sender>
+   <signal>triggered()</signal>
+   <receiver>LoginForm</receiver>
+   <slot>adminLogin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_btnLogin_clicked()</slot>
+  <slot>newRegister()</slot>
+  <slot>adminLogin()</slot>
  </slots>
 </ui>

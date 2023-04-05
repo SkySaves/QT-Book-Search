@@ -6,6 +6,9 @@
 #include <QStandardPaths>
 #include <QDir>
 #include <QDebug>
+#include "adminwindow.h"
+#include "adminlogin.h"
+
 
 
 
@@ -42,6 +45,13 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    //Enables the QT Menubar on MacOS. Due to a bug, this isn't enabled by default on Mac.
+    #ifdef Q_OS_MACOS
+        QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar);
+    #endif
+
+
 
     // Copy the embedded database file to a writable location
         QString databaseFileName = "bookstore.db";
@@ -121,5 +131,3 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
-
-

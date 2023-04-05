@@ -171,6 +171,7 @@
     <addaction name="actionAdmin"/>
     <addaction name="actionLogout"/>
     <addaction name="actionHelp"/>
+    <addaction name="actionNotes"/>
    </widget>
    <addaction name="menuMenu"/>
   </widget>
@@ -198,6 +199,11 @@
   <action name="actionHelp">
    <property name="text">
     <string>Help</string>
+   </property>
+  </action>
+  <action name="actionNotes">
+   <property name="text">
+    <string>Notes</string>
    </property>
   </action>
  </widget>
@@ -251,10 +257,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionNotes</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>notes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>283</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>about()</slot>
   <slot>aboutPage()</slot>
   <slot>help()</slot>
+  <slot>notes()</slot>
  </slots>
 </ui>
