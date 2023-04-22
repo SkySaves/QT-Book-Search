@@ -58,6 +58,13 @@ Collaborative project with Fernando and Johnathan.
       
       -Added Checkout functionality.
       
+### v1.0.0:
+      -Changed the results section to a table so the user is able to click on the book they would like to add to their cart.
+      
+      -Added a receipt that is created as a text file in the build directory.
+      
+      -Final version
+      
       
       
       
