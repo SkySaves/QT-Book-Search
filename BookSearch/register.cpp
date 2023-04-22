@@ -11,13 +11,10 @@ RegisterForm::RegisterForm(QDialog *parent) :
     ui(new Ui::RegisterForm)
 {
     ui->setupUi(this);
-
-
     // Disconnect any existing connections
     disconnect(ui->btnRegister, &QPushButton::clicked, nullptr, nullptr);
     connect(ui->btnRegister, &QPushButton::clicked, this, &RegisterForm::on_btnRegister_clicked);
 }
-
 
 RegisterForm::~RegisterForm()
 {

@@ -39,10 +39,10 @@ private:
     QSqlDatabase db;
     Cart cart;
     double salesTax = 1.06;
+    QVector<QStringList> selectedBooks;
 
 private slots:
 
-    //void on_btnRegister_clicked();
     void on_btnSearch_clicked();
     void writeToLogFile(const QString &message);
     void about();

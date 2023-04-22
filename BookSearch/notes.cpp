@@ -6,7 +6,8 @@ notes::notes(QWidget *parent) :
     ui(new Ui::notes)
 {
     ui->setupUi(this);
-
+    //removes the X button at the top of the window.
+    setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
     // Disconnect any existing connections
     disconnect(ui->exitButton, &QPushButton::clicked, nullptr, nullptr);
     connect(ui->exitButton, &QPushButton::clicked, this, &notes::on_exitButton_clicked);
@@ -58,7 +59,7 @@ void notes::on_exitButton_clicked()
     //checks if the note has been saved before exiting
     if (!ongoingFile.isEmpty())
     {
-        hide();
+        close();
     }
     else
     {   //if the file has not been saved, it will warn the user before exiting and give them an option of saving or not.
@@ -67,11 +68,11 @@ void notes::on_exitButton_clicked()
         if (confirmation == QMessageBox::Yes)
         {
             on_saveNoteBttn_clicked();
-            hide();
+            close();
         }
         else
         {
-            hide();
+            close();
         }
     }
 }

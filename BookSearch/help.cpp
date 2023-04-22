@@ -7,7 +7,11 @@
 help::help(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::help)
+
 {
+    //removes the X button at the top of the window.
+    setWindowFlags(Qt::Window | Qt::WindowTitleHint | Qt::CustomizeWindowHint);
+
     QSysInfo *sysInfo = new QSysInfo();
     ui->setupUi(this);
     ui->tableHardware->verticalHeader()->hide();

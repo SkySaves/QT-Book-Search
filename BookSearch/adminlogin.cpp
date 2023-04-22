@@ -9,6 +9,9 @@
         ui(new Ui::adminlogin)
     {
         ui->setupUi(this);
+        // Disconnect any existing connections
+        disconnect(ui->adminloginBttn, &QPushButton::clicked, nullptr, nullptr);
+        connect(ui->adminloginBttn, &QPushButton::clicked, this, &adminlogin::on_adminloginBttn_clicked);
     }
 
     adminlogin::~adminlogin()
@@ -30,7 +33,7 @@
             if(query.next())
             {
                 qDebug() << "Admin login successful " << query.value(0).toString();
-                hide();
+                close();
                 Adminwindow = new adminwindow(this);
                 Adminwindow->show();
             }

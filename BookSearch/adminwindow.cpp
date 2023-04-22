@@ -121,6 +121,6 @@ void adminwindow::on_backbttn_clicked()
 {
     LoginForm *loginForm = new LoginForm;
     loginForm->show();
-    hide();
+    close();
 }
 

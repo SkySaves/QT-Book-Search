@@ -1,23 +1,21 @@
 #include "cart.h"
 
-
-
 Cart::Cart()
 {
-    items = std::map<int, CartItem>();
+    items = std::map<QString, CartItem>();
 }
 
-void Cart::add_item(int book_id, std::string book_title, double price) {
-    if (items.find(book_id) != items.end()) {
-        items[book_id].quantity += 1;
+void Cart::add_item(const CartItem& item) {
+    if (items.find(item.title) != items.end()) {
+        items[item.title].quantity += 1;
     } else {
-        CartItem item = {book_title, price, 1};
-        items[book_id] = item;
+        items[item.title] = item;
+        items[item.title].quantity = 1;
     }
 }
 
-void Cart::remove_item(int book_id) {
-    items.erase(book_id);
+void Cart::remove_item(const QString& title) {
+    items.erase(title);
 }
 
 int Cart::get_item_count() {
@@ -32,6 +30,6 @@ void Cart::clear_cart() {
     items.clear();
 }
 
-std::map<int, CartItem> Cart::get_items() const {
+std::map<QString, CartItem> Cart::get_items() const {
     return items;
 }

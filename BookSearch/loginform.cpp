@@ -1,5 +1,4 @@
 #include "loginform.h"
-
 #include <QMessageBox>
 #include "mydb.h"
 #include "register.h"
@@ -25,7 +24,7 @@ LoginForm::~LoginForm()
 
 void LoginForm::adminLogin()
 {
-    hide();
+    close();
     Adminlogin = new adminlogin(this);
     Adminlogin->show();
 }
@@ -33,10 +32,8 @@ void LoginForm::adminLogin()
 
 void LoginForm::newRegister()
 {
-    hide();
+    close();
     registerform = new RegisterForm();
-
-
     registerform->exec();
 }
 
@@ -54,7 +51,7 @@ void LoginForm::on_btnLogin_clicked()
         if(query.next())
         {
             qDebug() << "Login successful " << query.value(0).toString();
-            hide();
+            close();
             mainwindow = new MainWindow(this);
             mainwindow->show();
         }

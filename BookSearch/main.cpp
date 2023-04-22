@@ -45,35 +45,12 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
+    //sets a style called Fusion that allows the GUI to stay consistent across platforms (mac and windows)
+    QApplication::setStyle("Fusion");
     //Enables the QT Menubar on MacOS. Due to a bug, this isn't enabled by default on Mac.
     #ifdef Q_OS_MACOS
         QCoreApplication::setAttribute(Qt::AA_DontUseNativeMenuBar);
     #endif
-
-
-
-    // Copy the embedded database file to a writable location
-        QString databaseFileName = "bookstore.db";
-        QString writableLocation = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-        QDir dir(writableLocation);
-        if (!dir.exists()) {
-            dir.mkpath(writableLocation);
-        }
-        QString destinationPath = writableLocation + "/" + databaseFileName;
-
-        QFile dbFile(":/data/" + databaseFileName);
-        if (dbFile.exists()) {
-            if (!QFile::exists(destinationPath) || QFile(destinationPath).size() == 0) {
-                if (dbFile.copy(destinationPath)) {
-                    QFile::setPermissions(destinationPath, QFile::ReadUser | QFile::WriteUser);
-                } else {
-                    qDebug() << "Failed to copy the database file to the writable location";
-                }
-            }
-        } else {
-            qDebug() << "Database file not found in the resource system";
-        }
 
     // Create a splash screen
        QSplashScreen splash;
