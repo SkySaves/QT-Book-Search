@@ -1,72 +1,39 @@
 # QT Book-Search
 
+## Overview
+QT Book-Search is a rework of the previous "Book-Search" program, now utilizing the QT framework for a user-friendly GUI. This collaborative project with Fernando and Johnathan brings a more interactive and engaging experience to book management.
 
-This is a re-work of my previous program "Book-Search."
+## Features
+- **User-Friendly GUI**: Built with the QT framework for an enhanced user experience.
+- **Splash Screen**: A splash screen is displayed before the program launches.
+- **Login Functionality**: Secure login system for users, including an admin login.
+- **Menu Bar and Status Bar**: Easy navigation with a menu bar and a status bar displaying the number of books in the database.
+- **Hardware Information Display**: Provides hardware information on a separate screen.
+- **Notes Functionality**: Ability to create notes and export them to a .txt file.
+- **Admin and Registration UI**: Administrative options and user registration functionality.
+- **Cart and Checkout**: Features for managing a shopping cart and checkout process.
+- **Pac-Man Easter Egg**: A fun Pac-Man game as an easter egg.
+- **Receipt Generation**: Generates a receipt as a text file in the build directory.
 
-This rework uses the QT framework, which includes a user friendly GUI.
+## Installation
+To install and run QT Book-Search:
+1. Clone the repository:
+2. Ensure you have QT installed and set up in your environment.
+3. Copy the database into the build directory if compiling yourself.
+4. Compile and run the application.
 
-Collaborative project with Fernando and Johnathan.
+## Usage
+After installation, run the executable to start the application. Use the login functionality to access the system. Navigate through the application using the menu bar and interact with the various features like book searching, cart management, and checkout.
 
+## Contributing
+Contributions are welcome. Feel free to fork the repository, make changes, and submit pull requests.
 
-## You must copy the database into the build directory if you compile yourself!
+## Version History
+- **v0.0.3**: Initial splash screen implementation.
+- **v0.0.5**: Login functionality and menu bar added.
+- **v0.0.6**: Screen optimization for primary and secondary displays.
+- **v0.0.7**: Hardware information display and improved splash screen.
+- **v0.0.8**: Notes functionality and admin UI enhancements.
+- **v0.0.9**: Pac-Man easter egg, cart, and checkout features.
+- **v1.0.0**: Final version with receipt generation and table view for search results.
 
-
-### v0.0.3:
-      -Added a splash screen before the program launches, the PNG file it uses is included in the directory.
-
-### v0.0.5:
-
-      -Added a splash screen (requires the included PNG file).
-      
-      -Added login functionality.
-      
-      -Added a menu bar. Only the About option is working right now.
-      
-      -Added a status bar at the bottom of the application displaying how many books are in the database.
-      
-
-### v0.0.6:
-
-      -Set the screen to the users primary screen, displays the splash screen on their second screen if they have one.
-      
-      -Modified the splashscreen to take up no more that 15% of the available desktop space.
-      
-### v0.0.7:
-      -Display hardware information to the user on a separate screen (Launch from Help menu).
-      
-      -Set the screen to the users primary screen, displays the splash screen on their second screen if they have one.
-      
-      -Uses a qMessageBox in the application when an entry is incorrect.
-      
-      -Modified the splashscreen to take up no more that 15% of the available desktop space.
-      
-### v0.0.8:
-      -Now uses QFile and a separate dialog box to create a notes dialog from the mainwindow, which then exports the note to a .txt file.
-      
-      -Added an Admin Login menu launched from the customer login menu.
-      
-      -Added an Admin UI that gives you many administrative options.
-      
-      -Added a Registration UI from the customer login menu that allows you to create a new customer account.
-      
-      -Minor bug fixes.
-      
-### v0.0.9:
-      -Added a Pac-Man easter egg
-      
-      -Added Cart functionality.
-      
-      -Added Checkout functionality.
-      
-### v1.0.0:
-      -Changed the results section to a table so the user is able to click on the book they would like to add to their cart.
-      
-      -Added a receipt that is created as a text file in the build directory.
-      
-      -Final version
-      
-      
-      
-      
-
-:zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz: :zzz:
