@@ -1,7 +1,7 @@
 # QT Book-Search
 
 ## Overview
-QT Book-Search is a rework of the previous "Book-Search" program, now utilizing the QT framework for a user-friendly GUI. This collaborative project with Fernando and Johnathan brings a more interactive and engaging experience to book management.
+QT Book-Search is a rework of the previous "Book-Search" program, now utilizing the QT framework for a user-friendly GUI. This collaborative project with Fernando brings a more interactive and engaging experience to book management.
 
 ## Features
 - **User-Friendly GUI**: Built with the QT framework for an enhanced user experience.
